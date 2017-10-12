@@ -1,15 +1,15 @@
 package main
 
 import (
-        "fmt"
-        "bufio"
-        "os"
-        "github.com/dejan/preslovi"
+	"bufio"
+	"fmt"
+	"github.com/dejan/preslovi"
+	"os"
 )
 
 func main() {
-        scanner := bufio.NewScanner(os.Stdin)
-        for scanner.Scan() {
-            fmt.Println(preslovi.Latinicom(scanner.Text()))
-        }
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
+		fmt.Println(preslovi.Latinicom(scanner.Text()))
+	}
 }
