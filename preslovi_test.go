@@ -1,23 +1,28 @@
 package preslovi
 
-import "testing"
+import "fmt"
 
-var samples = []struct {
-	in  string
-	out string
-}{
-	{"Шабан Шаулић", "Šaban Šaulić"},
-	{"ЊЕГОШ", "NJEGOŠ"},
-	{"електродистрибуција", "elektrodistribucija"},
-	{"Ђурђевак", "Đurđevak"},
-	{"Latinica", "Latinica"},
+func ExampleLatinicom() {
+	fmt.Println(Latinicom("Шабан Шаулић"))
+	// Output: Šaban Šaulić
 }
 
-func TestLatinicom(t *testing.T) {
-	for _, tt := range samples {
-		actual := Latinicom(tt.in)
-		if actual != tt.out {
-			t.Errorf("Latinicom(%s): expected %s, actual %s", tt.in, tt.out, actual)
-		}
-	}
+func ExampleLatinicom_second() {
+	fmt.Println(Latinicom("ЊЕГОШ"))
+	// Output: NJEGOŠ
+}
+
+func ExampleLatinicom_third() {
+	fmt.Println(Latinicom("електродистрибуција"))
+	// Output: elektrodistribucija
+}
+
+func ExampleLatinicom_fourth() {
+	fmt.Println(Latinicom("Ђурђевак"))
+	// Output: Đurđevak
+}
+
+func ExampleLatinicom_fifth() {
+	fmt.Println(Latinicom("Latinica"))
+	// Output: Latinica
 }
