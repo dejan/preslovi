@@ -5,7 +5,7 @@ Konzolna alatka i Go paket za preslovljavanje ćirilice na latinicu.
 ## Upotreba konzolne alatke
 
 ```shell
-go get github.com/dejan/preslovi/cmd/preslovi
+go install github.com/dejan/preslovi/cmd/preslovi
 
 cat txt/kacusa.txt | preslovi
 ```
