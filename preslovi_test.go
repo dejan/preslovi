@@ -26,3 +26,8 @@ func ExampleLatinicom_fifth() {
 	fmt.Println(Latinicom("Latinica"))
 	// Output: Latinica
 }
+
+func ExampleLatinicomAscii() {
+	fmt.Println(LatinicomAscii("Шабан Шаулић"))
+	// Output: Saban Saulic
+}
