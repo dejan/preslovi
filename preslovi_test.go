@@ -1,53 +1,32 @@
 package preslovi
 
-import "fmt"
+import "testing"
 
-func ExampleLatinicom() {
-	fmt.Println(Latinicom("Шабан Шаулић"))
-	// Output: Šaban Šaulić
+var examples = []struct {
+	input string
+	latin string
+	ascii string
+}{
+	{"ЊЕГОШ", "NJEGOŠ", "NJEGOS"},
+	{"Latinica", "Latinica", "Latinica"},
+	{"Ђурђевак", "Đurđevak", "Djurdjevak"},
+	{"Шабан Шаулић", "Šaban Šaulić", "Saban Saulic"},
+	{"електродистрибуција", "elektrodistribucija", "elektrodistribucija"},
+	{"ЂОРЂЕ Ђ. Ђорђевић", "ĐORĐE Đ. Đorđević", "DJORDJE Dj. Djordjevic"},
+	{"ĐORĐE Đ. Đorđević", "ĐORĐE Đ. Đorđević", "DJORDJE Dj. Djordjevic"},
+	{"ЉИЉА Љ. Љиљановић", "LJILJA Lj. Ljiljanović", "LJILJA Lj. Ljiljanovic"},
 }
 
-func ExampleLatinicom_second() {
-	fmt.Println(Latinicom("ЊЕГОШ"))
-	// Output: NJEGOŠ
-}
+func TestExamples(t *testing.T) {
+	for _, tt := range examples {
+		latin := Latinicom(tt.input)
+		if latin != tt.latin {
+			t.Errorf("Latinicom(%s): expected %s, actual %s", tt.input, tt.latin, latin)
+		}
 
-func ExampleLatinicom_digraph() {
-	fmt.Println(Latinicom("ЉИЉА Љ. Љиљановић"))
-	// Output: LJILJA Lj. Ljiljanović
-}
-
-func ExampleLatinicom_digraph2() {
-	fmt.Println(Latinicom("ЂОРЂЕ Ђ. Ђорђевић"))
-	// Output: ĐORĐE Đ. Đorđević
-}
-
-func ExampleLatinicom_third() {
-	fmt.Println(Latinicom("електродистрибуција"))
-	// Output: elektrodistribucija
-}
-
-func ExampleLatinicom_fourth() {
-	fmt.Println(Latinicom("Ђурђевак"))
-	// Output: Đurđevak
-}
-
-func ExampleLatinicom_fifth() {
-	fmt.Println(Latinicom("Latinica"))
-	// Output: Latinica
-}
-
-func ExampleLatinicomAscii() {
-	fmt.Println(LatinicomAscii("Шабан Шаулић"))
-	// Output: Saban Saulic
-}
-
-func ExampleLatinicomAscii_digraph2() {
-	fmt.Println(LatinicomAscii("ЂОРЂЕ Ђ. Ђорђевић"))
-	// Output: DJORDJE Dj. Djordjevic
-}
-
-func ExampleLatinicomAscii_digraph3() {
-	fmt.Println(LatinicomAscii("ĐORĐE Đ. Đorđević"))
-	// Output: DJORDJE Dj. Djordjevic
+		ascii := LatinicomAscii(tt.input)
+		if ascii != tt.ascii {
+			t.Errorf("LatinicomAscii(%s): expected %s, actual %s", tt.input, tt.ascii, ascii)
+		}
+	}
 }
