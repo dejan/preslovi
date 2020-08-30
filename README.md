@@ -21,8 +21,13 @@ import (
 )
 
 func main() {
-    fmt.Println(preslovi.Latinicom("Ђурђевак"))     // Đurđevak
-    fmt.Println(preslovi.Latinicom("Шабан Шаулић")) // Šaban Šaulić
+    fmt.Println(preslovi.Latinicom("Ђурђевак"))          // Đurđevak
+    fmt.Println(preslovi.Latinicom("Шабан Шаулић"))      // Šaban Šaulić
+    fmt.Println(preslovi.Latinicom("ЂОРЂЕ Ђ. Ђорђевић")) // ĐORĐE Đ. Đorđević
+
+    fmt.Println(preslovi.LatinicomAscii("Ђурђевак"))          // Djurdjevak
+    fmt.Println(preslovi.LatinicomAscii("Шабан Шаулић"))      // Saban Saulic
+    fmt.Println(preslovi.LatinicomAscii("ЂОРЂЕ Ђ. Ђорђевић")) // DJORDJE Dj. Djordjevic
 }
 ```
 
